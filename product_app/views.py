@@ -3,6 +3,7 @@ from product_app.forms import AddForm, SaleForm
 from product_app.models import Product,Sale
 from django.contrib.auth.decorators import login_required
 from product_app.filters import ProductFilter
+from .email import send_welcome_email
 
 
 # Create your views here.
@@ -95,4 +96,20 @@ def add_to_stock(request, pk):
             print (issued_item.total_quantity)
             return redirect('home')
 
-    return render (request, 'products/add_to_stock.html', {'form': form})
+    return render(request, 'products/add_to_stock.html', {'form': form})
+    
+
+def receipts(request):
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+
+            recipient = NewsLetterRecipients(name = name,email =email)
+            recipient.save()
+            send_welcome_email(name,email)
+
+            HttpResponseRedirect('receipts')
+            #.................
+    return render(request, 'products/receipt.html',{'form':form})
