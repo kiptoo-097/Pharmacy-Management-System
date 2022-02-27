@@ -1,4 +1,4 @@
-#!/home/kkenon/Desktop/kennedy/COOP Project/Pharmacy Management System/virtual/bin/python3
+#!/home/kiptoo/Desktop/Projects/Pharmacy-Management-System/virtual/bin/python
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

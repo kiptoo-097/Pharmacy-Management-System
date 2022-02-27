@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/kkenon/Desktop/kennedy/COOP Project/Pharmacy Management System/virtual/bin/python3" "$0" "$@"
-' '''
+#!/home/kiptoo/Desktop/Projects/Pharmacy-Management-System/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
